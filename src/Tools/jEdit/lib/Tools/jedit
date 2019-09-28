@@ -369,7 +369,8 @@ then
   rm -rf dist || failed
   mkdir -p dist || failed
 
-  cp -p -R -f "$ISABELLE_JEDIT_BUILD_HOME/contrib/$ISABELLE_JEDIT_BUILD_VERSION/." dist/.
+  cp -p -RL -f "$ISABELLE_JEDIT_BUILD_HOME/contrib/$ISABELLE_JEDIT_BUILD_VERSION/." dist/.
+  chmod -R +w dist
 
   init_resources "${RESOURCES_BASE[@]}"
   compile_sources "${SOURCES_BASE[@]}"
