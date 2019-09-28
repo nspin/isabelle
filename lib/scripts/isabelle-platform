@@ -20,6 +20,9 @@ case $(uname -s) in
         ISABELLE_PLATFORM32=x86-linux
         ISABELLE_PLATFORM64=x86_64-linux
         ;;
+      aarch64)
+        ISABELLE_PLATFORM64=aarch64-linux
+        ;;
     esac
     ;;
   Darwin)
