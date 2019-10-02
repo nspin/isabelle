@@ -139,9 +139,9 @@ object ML_Process
       redirect = redirect,
       cleanup = () =>
         {
-          isabelle_process_options.delete
-          Isabelle_System.rm_tree(isabelle_tmp)
-          cleanup()
+          // isabelle_process_options.delete
+          // Isabelle_System.rm_tree(isabelle_tmp)
+          // cleanup()
         })
   }
 

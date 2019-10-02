@@ -74,7 +74,7 @@ fun tmp_path path =
 
 val exists = can OS.FileSys.modTime o platform_path;
 
-val rm = OS.FileSys.remove o platform_path;
+fun rm x = ();
 
 fun test_dir path = the_default false (try OS.FileSys.isDir (platform_path path));
 fun is_dir path = exists path andalso test_dir path;

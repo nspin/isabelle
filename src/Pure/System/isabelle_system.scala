@@ -101,7 +101,7 @@ object Isabelle_System
       val settings =
       {
         val dump = JFile.createTempFile("settings", null)
-        dump.deleteOnExit
+        // dump.deleteOnExit
         try {
           val cmd1 =
             if (Platform.is_windows)
@@ -122,7 +122,7 @@ object Isabelle_System
             }).toMap
           entries + ("PATH" -> entries("PATH_JVM")) - "PATH_JVM"
         }
-        finally { dump.delete }
+        finally { }
       }
       _settings = Some(settings)
       set_cygwin_root()
@@ -174,14 +174,14 @@ object Isabelle_System
   {
     val suffix = if (ext == "") "" else "." + ext
     val file = Files.createTempFile(base_dir.toPath, name, suffix).toFile
-    file.deleteOnExit
+    // file.deleteOnExit
     file
   }
 
   def with_tmp_file[A](name: String, ext: String = "")(body: Path => A): A =
   {
     val file = tmp_file(name, ext)
-    try { body(File.path(file)) } finally { file.delete }
+    try { body(File.path(file)) } finally { }
   }
 
 
@@ -219,7 +219,7 @@ object Isabelle_System
   def tmp_dir(name: String, base_dir: JFile = isabelle_tmp_prefix()): JFile =
   {
     val dir = Files.createTempDirectory(base_dir.toPath, name).toFile
-    dir.deleteOnExit
+    // dir.deleteOnExit
     dir
   }
 
